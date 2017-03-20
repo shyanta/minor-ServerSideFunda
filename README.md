@@ -1,1 +1,1 @@
-"# minor-ServerSideFunda" 
+# minor-ServerSideFunda
