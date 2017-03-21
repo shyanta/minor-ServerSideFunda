@@ -10,7 +10,7 @@ console.log(process.env.KEY);
 router.get('/', function(req, res){
 	request(api, function (error, response, data) {
 		data = JSON.parse(data); 
-		res.locals.data = data;
+		res.locals.data = data.Objects;
 		console.log(res.locals.data);
 		res.render('home');
 	});

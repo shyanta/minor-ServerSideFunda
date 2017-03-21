@@ -2,7 +2,7 @@
 <h1>Hello World!</h1>
 <ul>
 	<% for(var i=0; i < data.length; i++){ %>	
-		<li><a href='/content/<%= data[i].Adres %>'><img src="uploads/<%= data[i].FotoLarge%>"></a></li>
+		<li><a href='<%= data[i].GlobalId %>'><img src="<%= data[i].FotoLarge%>"><%= data[i].Adres %></a></li>
 		<% }; %>
 </ul>
 <%- include('./partials/foot.ejs') %>
