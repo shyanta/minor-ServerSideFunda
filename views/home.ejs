@@ -1,1 +1,8 @@
+<%- include('./partials/head.ejs') %>
 <h1>Hello World!</h1>
+<ul>
+	<% for(var i=0; i < data.length; i++){ %>	
+		<li><a href='/content/<%= data[i].Adres %>'><img src="uploads/<%= data[i].FotoLarge%>"></a></li>
+		<% }; %>
+</ul>
+<%- include('./partials/foot.ejs') %>
