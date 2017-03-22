@@ -18,7 +18,7 @@
 				<img src="/img/header-boom.svg">
 				<img src="/img/header-huis.svg">
 			</div>
-			<form>
+			<form action="/results" method="post" enctype="multipart/form-data">
 				<fieldset>
 					<input type="radio" name="type" id="koop" value="koop" checked/>
 					<label for="koop">Koop</label>
@@ -55,7 +55,7 @@
 						<option name="price-max" value="1250000">€1.250.000</option>
 						<option name="price-max" value="1500000">€1.500.000</option>
 					</select>
-				<button type="submit">Search</button>
+				<input type="submit">Search</button>
 				</fieldset>					
 			</form>	
 		</header>	
