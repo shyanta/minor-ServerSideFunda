@@ -11,6 +11,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// Tell express which static files to serve
+app.use(express.static('public'));
 
 app.use('/', homeRouter);
 
