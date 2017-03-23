@@ -1,6 +1,7 @@
 <%- include('./partials/head.ejs') %>
 <section id="results">
 	<aside>
+		<h2>Geef jou belangrijkheid mee!</h2>
 		<label for="tuin">Tuin</label>
 		<select id="tuin">
 			<option class="Tuin" value="1">1</option>
@@ -53,7 +54,7 @@
 		<% for(var i=0; i < data.length; i++){ %>	
 			<li>
 				<img src="<%= data[i].FotoLarge%>" alt="<%= data[i].Adres+ ' ' + data[i].Woonplaats%>" title="<%= data[i].Adres+ ' ' + data[i].Woonplaats%>">
-				<a href='<%= data[i].GlobalId %>'></a>
+				<a href='/results/<%= data[i].Id %>'></a>
 				<div class="omschrijving">
 					<h2><%= data[i].Adres%></h2>
 					<h3><%= data[i].Postcode + ' ' + data[i].Woonplaats%></h3>

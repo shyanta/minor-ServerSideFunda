@@ -201,3 +201,7 @@ section#results {
 				left: 0;
 				right: 0;
 			}
+section#detail a {
+	color: #f7a100;
+	display: block;
+}

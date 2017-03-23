@@ -1,0 +1,18 @@
+<%- include('./partials/head.ejs') %>
+<section id="detail">
+	<a href="javascript:history.back();">Terug naar overzicht</a>
+	<img src="<%= data.HoofdFoto%>" alt="<%= data.Adres+ ' ' + data.Plaats%>" title="<%= data.Adres+ ' ' + data.Plaats%>">
+	<a href='<%= data.Id %>'></a>
+	<div class="omschrijving">
+		<h2><%= data.Adres%></h2>
+		<h3><%= data.Postcode + ' ' + data.Plaats%></h3>
+		<p><%- data.VolledigeOmschrijving %></p>
+		<p><%- data.PrijsGeformatteerd%></p>
+		<div class="sub-info">
+			<p><%= data.WoonOppervlakte + ' m2'%></p>
+			<p><%= data.PerceelOppervlakte + ' m2'%></p>
+			<p><%= data.AantalKamers + ' kamers'%></p>
+		</div>
+		<p><%='Makelaar: ' + data.Makelaar%></p>
+</section>
+<%- include('./partials/foot.ejs') %>
