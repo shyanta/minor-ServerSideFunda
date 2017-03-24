@@ -3,8 +3,6 @@ var request = require('request');
 
 var router = express.Router();
 
-
-
 router.post('/', function(req,res){
 	var type = req.body.type;
 		woonplaats = req.body.woonplaats;
@@ -23,8 +21,8 @@ router.post('/', function(req,res){
 
 router.get('/:index', function(req,res){
 	var id = req.params.index;
-
 	var detailApi = "http://funda.kyrandia.nl/feeds/Aanbod.svc/json/detail/" + process.env.KEY + '/' + 'koop' + '/' + id;
+	console.log(detailApi);
 	request(detailApi, function(error, response, data) {
 		data = JSON.parse(data);
 		res.locals.data = data;
