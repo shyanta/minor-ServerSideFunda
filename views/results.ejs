@@ -51,27 +51,27 @@
 		<button id="sort">Send</button>
 	</aside>
 	<ul class="house">
-		<% for(var i=0; i < data.length; i++){ %>	
+		<% for(var i=0; i < data.length; i++){ %>
 			<li>
-				<img src="<%= data[i].FotoLarge%>" alt="<%= data[i].Adres+ ' ' + data[i].Woonplaats%>" title="<%= data[i].Adres+ ' ' + data[i].Woonplaats%>">
-				<a href='/results/<%= data[i].Id %>'></a>
+				<img src="<%= data[i].HoofdFoto%>" alt="<%= data[i].Adres+ ' ' + data[i].Plaats%>" title="<%= data[i].Adres+ ' ' + data[i].Woonplaats%>">
+				<a href='/results/<%= data[i].InternalId %>'></a>
 				<div class="omschrijving">
 					<h2><%= data[i].Adres%></h2>
-					<h3><%= data[i].Postcode + ' ' + data[i].Woonplaats%></h3>
-					<p><%- data[i].PrijsGeformatteerdHtml%></p>
+					<h3><%= data[i].Postcode + ' ' + data[i].Plaats%></h3>
+					<p><%- data[i].PrijsGeformatteerd%></p>
 					<div class="sub-info">
-						<% if(data[i].Woonoppervlakte !== null){ %>
-							<p><%-data[i].Woonoppervlakte + ' m<sup>2</sup>'%></p>
+						<% if(data[i].WoonOppervlakte !== null){ %>
+							<p><%-data[i].WoonOppervlakte + ' m<sup>2</sup> - '%></p>
 						<%}%>
-						<% if(data[i].Perceeloppervlakte !== null){ %>
-							<p><%-data[i].Perceeloppervlakte + ' m<sup>2</sup>'%></p>
+						<% if(data[i].PerceelOppervlakte !== null){ %>
+							<p><%-data[i].PerceelOppervlakte + ' m<sup>2</sup>'%></p>
 						<%}%>
 						<% if(data[i].AantalKamers !== null){ %>
 							<p><%-data[i].AantalKamers + ' kamers'%></p>
 						<%}%>
-						
+
 					</div>
-					<p><%='Makelaar: ' + data[i].MakelaarNaam%></p>
+					<p><%='Makelaar: ' + data[i].Makelaar%></p>
 				</div>
 			</li>
 		<% }; %>
