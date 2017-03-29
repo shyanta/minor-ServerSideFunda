@@ -242,7 +242,6 @@ section#detail {
 		}
 	section#detail .omschrijving {
 		flex-basis: 30%;
-		margin-top: 42px;
 	}
 	section#detail > p {
 		flex-basis: 70%;

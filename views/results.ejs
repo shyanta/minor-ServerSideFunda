@@ -60,9 +60,16 @@
 					<h3><%= data[i].Postcode + ' ' + data[i].Woonplaats%></h3>
 					<p><%- data[i].PrijsGeformatteerdHtml%></p>
 					<div class="sub-info">
-						<p><%= data[i].Woonoppervlakte + ' m2'%></p>
-						<p><%= data[i].Perceeloppervlakte + ' m2'%></p>
-						<p><%= data[i].AantalKamers + ' kamers'%></p>
+						<% if(data[i].Woonoppervlakte !== null){ %>
+							<p><%-data[i].Woonoppervlakte + ' m<sup>2</sup>'%></p>
+						<%}%>
+						<% if(data[i].Perceeloppervlakte !== null){ %>
+							<p><%-data[i].Perceeloppervlakte + ' m<sup>2</sup>'%></p>
+						<%}%>
+						<% if(data[i].AantalKamers !== null){ %>
+							<p><%-data[i].AantalKamers + ' kamers'%></p>
+						<%}%>
+						
 					</div>
 					<p><%='Makelaar: ' + data[i].MakelaarNaam%></p>
 				</div>

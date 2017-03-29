@@ -11,12 +11,21 @@
 		<img src="<%= data.Media[4].MediaItems[2].UrlSecure%>" alt="<%= data.Adres+ ' ' + data.Plaats%>" title="<%= data.Adres+ ' ' + data.Plaats%>">
 		<img src="<%= data.Media[5].MediaItems[2].UrlSecure%>" alt="<%= data.Adres+ ' ' + data.Plaats%>" title="<%= data.Adres+ ' ' + data.Plaats%>">
 	</div>
-	<p><%- '<strong>Omschrijving:</strong> <br/><br/>' + data.VolledigeOmschrijving %></p>
+	<% if(data.VolledigeOmschrijving !== null){ %> 
+		<p><%-'<strong>Omschrijving:</strong> <br/><br/>' + data.VolledigeOmschrijving %></p>
+	<% } %>
 	<div class="omschrijving">
+		<p><strong>Extra informatie:</strong></p>
 		<p><%- data.PrijsGeformatteerd%></p>
-		<p><%= 'Woonoppervlakte: ' + data.WoonOppervlakte + ' m2'%></p>
-		<p><%= 'Perceeloppervlakte: ' + data.PerceelOppervlakte + ' m2'%></p>
-		<p><%= data.AantalKamers + ' kamers'%></p>
+		<% if(data.WoonOppervlakte !== null){ %>
+			<p><%-'Woonoppervlakte: ' + data.WoonOppervlakte + ' m<sup>2</sup>'%></p>
+		<%}%>
+		<% if(data.PerceelOppervlakte !== null){ %>
+			<p><%-'Woonoppervlakte: ' + data.PerceelOppervlakte + ' m<sup>2</sup>'%></p>
+		<%}%>
+		<% if(data.AantalKamers !== null){ %>
+			<p><%-'Aantal Kamers: ' + data.AantalKamers%></p>
+		<%}%>
 		<p><%='Makelaar: ' + data.Makelaar%></p>
 	</div>
 </section>
