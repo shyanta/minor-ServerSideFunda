@@ -1,58 +1,64 @@
 <%- include('./partials/head.ejs') %>
 <section id="results">
 	<aside>
-		<h2>Geef jou belangrijkheid mee!</h2>
-		<label for="tuin">Tuin</label>
-		<select id="tuin">
-			<option class="Tuin" value="1">1</option>
-			<option class="Tuin" value="2">2</option>
-			<option class="Tuin" value="3">3</option>
-			<option class="Tuin" value="4">4</option>
-			<option class="Tuin" value="5">5</option>
-		</select>
-		<label for="slaapkamers">Slaapkamers</label>
-		<select id="slaapkamers">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-		</select>
-		<label for="slaapkamersAantal">Aantal:</label>
-		<input type="number" name="slaapkamersAantal" id="slaapkamersAantal">
-		<label for="garage">Garage</label>
-		<select id="garage">
-			<option class="Garage" value="1">1</option>
-			<option class="Garage" value="2">2</option>
-			<option class="Garage" value="3">3</option>
-			<option class="Garage" value="4">4</option>
-			<option class="Garage" value="5">5</option>
-		</select>
-		<label for="woonoppervlakte">Woonoppervlakte</label>
-		<select id="woonoppervlakte">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-		</select>
-		<label for="woonoppmin">Minimale grootte:</label>
-		<input type="number" name="woonoppmin" id="woonoppmin">
-		<label for="perceeloppervlakte">Perceeloppervlakte</label>
-		<select id="perceeloppervlakte">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-		</select>
-		<label for="perceeloppmin">Minimale grootte:</label>
-		<input type="number" name="perceeloppmin" id="perceeloppmin">
-		<button id="sort">Send</button>
+		<form id="sort-form" methor="post" enctype="multipart/form-data">
+			<h2>Geef jou belangrijkheid mee!</h2>
+			<label for="tuin">Tuin</label>
+			<select id="tuin">
+				<option class="Tuin" value="1">1</option>
+				<option class="Tuin" value="2">2</option>
+				<option class="Tuin" value="3">3</option>
+				<option class="Tuin" value="4">4</option>
+				<option class="Tuin" value="5">5</option>
+			</select>
+			<label for="slaapkamers">Slaapkamers</label>
+			<select id="slaapkamers">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<label class="pad-left" for="slaapkamersAantal">Aantal:</label>
+			<input type="number" name="slaapkamersAantal" id="slaapkamersAantal">
+			<label for="garage">Garage</label>
+			<select id="garage">
+				<option class="Garage" value="1">1</option>
+				<option class="Garage" value="2">2</option>
+				<option class="Garage" value="3">3</option>
+				<option class="Garage" value="4">4</option>
+				<option class="Garage" value="5">5</option>
+			</select>
+			<label for="woonoppervlakte">Woonoppervlakte</label>
+			<select id="woonoppervlakte">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<label class="pad-left" for="woonoppmin">Minimale grootte:</label>
+			<input type="number" name="woonoppmin" id="woonoppmin">
+			<label for="perceeloppervlakte">Perceeloppervlakte</label>
+			<select id="perceeloppervlakte">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<label class="pad-left" for="perceeloppmin">Minimale grootte:</label>
+			<input type="number" name="perceeloppmin" id="perceeloppmin">
+			<input type="submit">
+		</form>
 	</aside>
 	<ul class="house">
 		<% for(var i=0; i < data.length; i++){ %>
-			<li>
+			<li class="<%=data[i].Adres%>" data-tuin='<% if (data[i].Tuin === null){%>false<%} else{%>true<%}%>' data-kamer='<% if (data[i].AantalKamers === null){%>0<%} else{%><%=data[i].AantalKamers%><%}%>'
+			data-garage='<% if (data[i].Garage === null){%>false<%} else{%>true<%}%>'
+			data-woonopp='<% if (data[i].WoonOppervlakte === null){%>0<%} else{%><%=data[i].WoonOppervlakte%><%}%>'
+			data-perceelopp='<% if (data[i].PerceelOppervlakte === null){%>0<%} else{%><%=data[i].PerceelOppervlakte%><%}%>'
+			>
 				<img src="<%= data[i].HoofdFoto%>" alt="<%= data[i].Adres+ ' ' + data[i].Plaats%>" title="<%= data[i].Adres+ ' ' + data[i].Woonplaats%>">
 				<a href='/results/<%= data[i].InternalId %>'></a>
 				<div class="omschrijving">

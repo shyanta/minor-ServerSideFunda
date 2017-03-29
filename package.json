@@ -14,10 +14,13 @@
     "path": "^0.12.7",
     "request": "^2.81.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "browserify": "^14.1.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+	"build": "browserify public/js/lightbox.js -o public/js/build.js"
   },
   "author": "",
   "license": "ISC"

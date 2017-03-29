@@ -5,10 +5,10 @@ var router = express.Router();
 var type = 'koop';
 
 router.post('/', function(req,res){
-		type = req.body.type;
-	var	woonplaats = req.body.woonplaats;
-		price_min = req.body.price_min;
-		price_max = req.body.price_max;
+	var type = router.locals.type;
+	var woonplaats = router.locals.woonplaats;
+	var price_min = router.locals.price_min;
+	var price_max = router.locals.price_max;
 
 	var api = 'http://funda.kyrandia.nl/feeds/Aanbod.svc/json/' + process.env.KEY + '/?type=' + type +'&zo=/' + woonplaats + '/' + price_min + '+' + price_max + '/&page=1&pagesize=25';
 	request(api, function (error, response, data) {
@@ -25,26 +25,12 @@ router.post('/', function(req,res){
 					} else {
 						bigData.push(JSON.parse(dataBig));
 						if (tinyData.Objects.length === bigData.length) {
-							res.locals.data = bigData;
-							res.render('results')
+							console.log(bigData);
+							res.send(bigData);
 						}
 					}
 				});
 			});
-		}
-	});
-});
-
-router.get('/:index', function(req,res){
-	var id = req.params.index;
-	var detailApi = "http://funda.kyrandia.nl/feeds/Aanbod.svc/json/detail/" + process.env.KEY + '/' + type + '/' + id;
-	request(detailApi, function(error, response, data) {
-		if (error) {
-			res.render('404');
-		} else {
-			data = JSON.parse(data);
-			res.locals.data = data;
-			res.render('detail');
 		}
 	});
 });

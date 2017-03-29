@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 //Routers
 var indexRouter = require('./routes/index');
 var resultsRouter = require('./routes/results');
+var apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(express.static('public'));
 // Tell app which routers to use when certain pages are opened
 app.use('/', indexRouter);
 app.use('/results', resultsRouter);
+app.use('/api', apiRouter);
 
 // When the / has input that isn't defined above, render the 404 error page
 app.get('/*', function(req,res){

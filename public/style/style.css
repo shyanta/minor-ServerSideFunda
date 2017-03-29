@@ -125,20 +125,34 @@ section#results {
 }
 	section#results aside {
 		flex-basis: 30%;
-		display: flex;
-		flex-wrap: wrap;
-		height: 20em;
 	}
-		section#results aside label,
-		section#results aside select {
-			flex-basis: 60%;
-			display: block;
-			height: 2em;
+		section#results aside form {
+			display: flex;
+			flex-wrap: wrap;
 		}
-		section#results aside select,
-		section#results aside input[type="number"] {
-			flex-basis: 40%;
-		}
+			section#results aside form label,
+			section#results aside form select {
+				align-self: flex-start;
+				flex-basis: 60%;
+				display: block;
+				height: 2em;
+			}
+			section#results aside form label.pad-left {
+				text-align: right;
+				padding-right: 15px;
+				box-sizing: border-box;
+			}
+			section#results aside form select,
+			section#results aside form input[type="number"] {
+				align-self: flex-start;
+				line-height: 1.6;
+				flex-basis: 40%;
+				width: 40%;
+				box-sizing: border-box;
+			}
+			section#results aside form input[type="submit"] {
+				align-self: flex-end;
+			}
 	section#results .house {
 		flex-basis: 70%;
 		display: flex;
