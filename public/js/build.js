@@ -5,6 +5,8 @@ console.log('lightbox');
 
 },{"./sort.js":2}],2:[function(require,module,exports){
 var sortForm = document.getElementById('sort-form');
+var aside = document.querySelector('aside');
+aside.removeAttribute('class');
 
 var tuinId = document.getElementById('tuin');
 var slaapkamer = document.getElementById('slaapkamers');
@@ -22,8 +24,6 @@ for (var i in items) {
     }
 }
 
-console.log(itemsArr);
-
 sortForm.addEventListener('submit', function(){
 	event.preventDefault();
 	var tuinVal = tuinId.options[tuinId.selectedIndex].value;
@@ -31,18 +31,6 @@ sortForm.addEventListener('submit', function(){
 	var garageVal = garageId.options[garageId.selectedIndex].value;
 	var woonOppVal = woon.options[woon.selectedIndex].value;
 	var perceelOppVal = perceel.options[perceel.selectedIndex].value;
-
-	function Val(){
-		aantalKamers();
-	}
-
-	// var itemsSorted = itemsArr.sort(
-	// 	firstBy(aantalKamers)
-	// 	.thenBy(tuin)
-	// 	.thenBy(garage)
-	// 	.thenBy(perceelOpp)
-	// 	.thenBy(woonOpp)
-	// );
 
 	var itemsSorted = itemsArr.sort(
 		firstBy(function(a,b){
@@ -325,80 +313,6 @@ sortForm.addEventListener('submit', function(){
 	for (i = 0; i < itemsArr.length; ++i) {
 		list.appendChild(itemsArr[i]);
 	}
-	console.log(itemsArr);
-
-	function tuin(a,b){
-		// console.log(a.dataset.tuin);
-			if ((a.dataset.tuin === false) && (b.dataset.tuin === false)){
-				return 0;
-			}
-			else if (a.dataset.tuin === false){
-				return 1;
-			}
-			else if (b.dataset.tuin === false){
-				return -1;
-			}
-	}
-	function aantalKamers(a,b){
-		var x = Number(a.dataset.kamer);
-		var y = Number(b.dataset.kamer);
-		var kamersInput = document.querySelector('input[name="slaapkamersAantal"]').value;
-			kamersInputNum = Number(kamersInput);
-		if ((x === kamersInputNum) && (y === kamersInputNum)){
-			console.log('0');
-			return 0;
-		}
-		else if (x === kamersInputNum){
-			console.log('1');
-			return -1;
-		}
-		else if (y === kamersInputNum){
-			console.log('-1');
-			return 1;
-		}
-	}
-	function garage(a,b){
-		if ((a.dataset.garage === false) && (b.dataset.garage === false)){
-			return 0;
-		}
-		else if (a.dataset.garage === false){
-			return 1;
-		}
-		else if (b.dataset.garage === false){
-			return -1;
-		}
-	}
-	function woonOpp(a,b){
-		var x = Number(a.dataset.woonopp);
-		var y = Number(b.dataset.woonopp);
-		var woonOppMin = document.querySelector('input[name="woonoppmin"]').value;
-			woonOppMinNum = Number(woonOppMin);
-		if ((x < woonOppMinNum) && (y < woonOppMinNum)){
-			return 0;
-		}
-		else if (x > woonOppMinNum){
-			return -1;
-		}
-		else if (y > woonOppMinNum){
-			return 1;
-		}
-	}
-	function perceelOpp(a,b){
-		var x = Number(a.dataset.perceelopp);
-		var y = Number(b.dataset.perceelopp);
-		var perceelOppMin = document.querySelector('input[name="perceeloppmin"]').value;
-			perceelOppMinNum = Number(perceelOppMin);
-		if ((x < perceelOppMinNum) && (y < perceelOppMinNum)){
-			return 0;
-		}
-		else if (x > perceelOppMinNum){
-			return -1;
-		}
-		else if (y > perceelOppMinNum){
-			return 1;
-		}
-	}
-
-})
+});
 
 },{}]},{},[1]);

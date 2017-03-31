@@ -4,6 +4,23 @@ var request = require('request');
 var router = express.Router();
 var type = 'koop';
 
+// router.post('/', function(req,res){
+// 		type = req.body.type;
+// 	var	woonplaats = req.body.woonplaats;
+// 		price_min = req.body.price_min;
+// 		price_max = req.body.price_max;
+//
+// 	var api = 'http://funda.kyrandia.nl/feeds/Aanbod.svc/json/' + process.env.KEY + '/?type=' + type +'&zo=/' + woonplaats + '/' + price_min + '+' + price_max + '/&page=1&pagesize=25';
+// 	request(api, function (error, response, data) {
+// 		if (error) {
+// 			res.render('404');
+// 		} else {
+// 			res.locals.data = data.Objects;
+// 			console.log(data);
+// 			res.render('tinyResults');
+// 		}
+// 	});
+// });
 router.post('/', function(req,res){
 		type = req.body.type;
 	var	woonplaats = req.body.woonplaats;

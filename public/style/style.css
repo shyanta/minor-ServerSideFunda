@@ -117,6 +117,19 @@ section {
 	width: 70%;
 	margin: 0 15%;
 }
+@media screen and (max-width: 60em){
+	section {
+		width: 90%;
+		margin: 0 5%;
+	}
+	header nav {
+		padding: 0;
+	}
+	header form, header .banner, header nav {
+		width: 100%;
+		margin: 0;
+	}
+}
 
 section#results {
 	display: flex;
@@ -130,6 +143,12 @@ section#results {
 			display: flex;
 			flex-wrap: wrap;
 		}
+			section#results aside.hidden {
+				display: none;
+			}
+				section#results aside.hidden + ul.house {
+					flex-basis: 100%;
+				}
 			section#results aside form label,
 			section#results aside form select {
 				align-self: flex-start;

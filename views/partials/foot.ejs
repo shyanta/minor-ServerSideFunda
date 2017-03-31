@@ -1,6 +1,11 @@
 		<footer>
 			<p>Copyrights || All rights reserved</p>
 		</footer>
+		<script type="text/javascript">
+			if('serviceWorker' in navigator){
+				navigator.serviceWorker.register('/sw.js');
+			}
+		</script>
 		<script src="js/build.js"></script>
 		<script src="js/thenBy.min.js"></script>
 	</body>
