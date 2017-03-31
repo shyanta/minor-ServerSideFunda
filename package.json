@@ -16,7 +16,8 @@
     "request": "^2.81.0"
   },
   "devDependencies": {
-    "browserify": "^14.1.0"
+    "browserify": "^14.1.0",
+    "compression": "^1.6.2"
   },
   "scripts": {
     "expose": "ngrok http 3000",

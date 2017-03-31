@@ -1,6 +1,7 @@
 //Modules
 require('dotenv').config();
 var express = require('express');
+var compression = require('compression');
 var path = require('path');
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
@@ -11,8 +12,10 @@ var resultsRouter = require('./routes/results');
 var offlineRouter = require('./routes/offline');
 
 var app = express();
+// Use Compression to Compress the files
+app.use(compression({threshold: 0, filter: function(){return true;}}));//Credits to Merlijn Vos
 
-// 
+//
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 

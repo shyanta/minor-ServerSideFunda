@@ -5,7 +5,7 @@ self.addEventListener("install", function (event) {
         return cache.addAll(
           [
             "/offline/",
-            "/style/style.css",
+            "/style/style.min.css",
             "/js/build.js",
 			"/js/thenBy.min.js",
             "/img/header-boom.svg",
